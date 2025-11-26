@@ -2,13 +2,11 @@
 
 import sys
 from solucion import reloj_arena
-
 def main():
     """
     data: lista de líneas leídas desde la entrada estándar o ingresadas por el usuario
           donde cada elemento de la lista es un string    
     """
-
     # IF que permite leer desde la entrada estándar o pedir datos al usuario
     if sys.stdin.isatty():
         data = []
@@ -24,16 +22,17 @@ def main():
 
     m_str = data[0].strip() # Primera línea: altura máxima (como texto)
     s = data[1]             # Segunda línea: carácter (o cadena) para la figura
-
     # Intentar convertir la altura a entero
     try:
         m = int(m_str)
     except ValueError:
         # TODO: imprimir "Error: La altura debe ser un numero entero" y salir
         print("Error: La altura debe ser un numero entero")
-        print("m = int(m_str)")
+        return
 
     # TODO: llamar a la función triangulo_simetrico con los parámetros m y s
     reloj_arena(m, s)
+
 if __name__ == "__main__":
     main()
+    #creo que ya, por fin alashet
