@@ -1,28 +1,31 @@
-def reloj_arena(m: int, s: str) -> str:
-    if m <= 0:
-        print("Error: La altura debe ser un entero positivo")
-        return
-    
-    if m == 1:
-        print(s)
-        return
-    
-    # Para altura impar
-    if m % 2 == 1:
-        # Parte superior (decreciente)
-        for i in range(m // 2 + 1):
-            espacios = i
-            caracteres = m - 2 * i
-            print(" " * espacios + s * caracteres)
-        
-        # Parte inferior (creciente, sin repetir la línea del centro)
-        for i in range(m // 2 - 1, -1, -1):
-            espacios = i
-            caracteres = m - 2 * i
-            print(" " * espacios + s * caracteres)
-    
-    # Para altura par  
+import sys
+from solucion import reloj_arena
+
+def main():
+    if sys.stdin.isatty():
+        data = []
+        data.append(input("Ingresa la altura: ").strip())
+        data.append(input("Ingresa el caracter: "))
     else:
+        data = sys.stdin.read().strip().splitlines()
+
+    if len(data) < 2:
+        print("Error: Se esperan 2 lineas de entrada (altura, caracter)")
+        return
+
+    m_str = data[0].strip()
+    s = data[1]
+
+    try:
+        m = int(m_str)
+    except ValueError:
+        print("Error: La altura debe ser un numero entero")
+        return
+
+    reloj_arena(m, s)
+
+if __name__ == "__main__":
+    main()
         # Parte superior
         for i in range(m // 2):
             espacios = i
