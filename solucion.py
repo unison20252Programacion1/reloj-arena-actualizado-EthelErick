@@ -1,19 +1,26 @@
 # En este archivo debes implementar la función
 #s caracter m lineas
 def reloj_arena(m: int, s: str) -> str:
-    # Validar altura mayor que 0 e imprimir "Error: La altura debe ser un entero positivo" y salir
     if m <= 0:
         print("Error: La altura debe ser un entero positivo")
         return
-                #se cupone que aqui tengo algo mal?
-    # Implementar la lógica para generar el reloj de arena en ASCII
-    n = m
-    for j in range(m):
-        espacios = (m - n) // 2
-        print(" " * espacios + s * n)    
-        if j < m // 2 - (1 if m % 2 == 0 else 0):
-            n -= 2
-        elif j >= m // 2:
-            n += 2
-        if n < 1:
-            n = 1
+    if m == 1:
+        print(s)
+        return
+        #se cupone que ya esta corregida, por fin
+    if m % 2 == 1:
+        lineas_sup = m // 2
+        ancho = m
+    else:
+        lineas_sup = m // 2 - 1
+        ancho = m
+    for i in range(lineas_sup + 1):
+        espacios = i
+        chars = ancho - 2 * i
+        if chars > 0:
+            print(" " * espacios + s * chars)
+    for i in range(lineas_sup - 1, -1, -1):
+        espacios = i
+        chars = ancho - 2 * i
+        if chars > 0:
+            print(" " * espacios + s * chars)
