@@ -5,8 +5,6 @@ def reloj_arena(m: int, s: str) -> str:
     if m <= 0:
         print("Error: La altura debe ser un entero positivo")
         return
-        #se cupone que aqui tengo algo mal?
-    # Implementar la lógica para generar el reloj de arena en ASCII
     n = m
     for j in range(m):
         espacios = (m - n) // 2
